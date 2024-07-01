@@ -3,15 +3,20 @@ const app = express();
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
-require('dotenv').config()
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const cookieParser = require('cookie-parser');
+require('dotenv').config();
 const port = process.env.PORT || 5000;
 
-// middleware
-
-app.use(cors());
+// Middleware
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+  ],
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+  credentials: true,
+}));
 app.use(express.json());
-
+app.use(cookieParser());
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.ykgi9mv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
@@ -24,38 +29,64 @@ const client = new MongoClient(uri, {
   }
 });
 
+// Middleware
+const logger = (req, res, next) => {
+  console.log(`logInfo ${req.method} ${req.url}`);
+  next();
+};
+
+const verifyToken = (req, res, next) => {
+  const token = req.cookies?.token;
+  if (!token) {
+    return res.status(401).send({ message: 'unauthorized access' });
+  }
+  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+    if (err) {
+      return res.status(403).send({ message: 'unauthorized access' });
+    } else {
+      req.user = user;
+      next();
+    }
+  });
+};
+
+const cookieOptions = {
+  httpOnly: true,
+  sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
+  secure: process.env.NODE_ENV === "production" ? true : false,
+};
+
 async function run() {
   try {
-    // Connect the client to the server	(optional starting in v4.7)
-    // await client.connect();
+    await client.connect();
 
+    const usersCollection = client.db('assignment12').collection('user');
+    app.put("/user", async (req, res) => {
+      const user = req.body;
+      const option = { upsert: true };
+      const query = { email: user?.email };
 
-    const usersCollection = client.db('assainment12').collection('user')
-
-
-    // jwt
-    app.post('/jwt', async (req, res) => {
-      const userInfo = req.body
-      const token = jwt.sign(userInfo, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1h' })
-      res.send({ token })
-    })
-
-    app.get('/hrmanager/:email', async (req, res) => {
-      const email = req.params.email;
-      const query = {
-        email: email
+      const isExist = await usersCollection.findOne(query);
+      if (isExist) {
+        res.send(isExist);
+      } else {
+        const result = await usersCollection.insertOne(user);
+        res.send(result);
       }
-      const hr = await usersCollection.findOne(query)
-      let hrRole = false
-      let employeeRole = false
-      if (hr) {
-        hrRole = hr?.role === 'hr'
-        employeeRole = hr?.role === 'employee'
-      }
-      res.send({ hrRole, employeeRole })
-    })
+    });
 
-    // Send a ping to confirm a successful connection
+    app.post("/jwt", async (req, res) => {
+      const { email } = req.body;
+      const token = jwt.sign({ email }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1h' });
+      res.cookie('token', token, cookieOptions);
+      res.send({ token });
+    });
+
+    app.post("/logout", async (req, res) => {
+      res.clearCookie('token');
+      res.send({ message: 'Logged out' });
+    });
+
     await client.db("admin").command({ ping: 1 });
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
   } finally {
@@ -66,9 +97,9 @@ async function run() {
 run().catch(console.dir);
 
 app.get('/', (req, res) => {
-  res.send('boss is sitings');
-})
+  res.send('boss is sitting');
+});
 
 app.listen(port, () => {
   console.log(`server is running on port ${port}`);
-})
+});
