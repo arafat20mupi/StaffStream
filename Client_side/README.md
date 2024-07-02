@@ -56,7 +56,6 @@
 
 Development Setup:
 
-Clone the repository: git clone https://github.com/programming-hero-web-course1/b9a12-client-side-Amdadul-HQ.git
 
 Install dependencies: npm install
 
@@ -71,7 +70,3 @@ Running the Application:
 Start the development server: npm start
 
 
-Contributing:
-
-[FRONT-END] : [AMDADUL_HQ]
-[BACK-END] : [AMDADUL_HQ]
