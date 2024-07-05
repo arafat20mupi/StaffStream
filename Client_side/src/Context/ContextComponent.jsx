@@ -25,8 +25,18 @@ const ContextComponent = ({ children }) => {
 
   const signIn = (email, password) => {
     setLoading(true);
-    return signInWithEmailAndPassword(auth, email, password);
+    return signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Handle successful sign-in
+        setLoading(false);
+        return userCredential;
+      })
+      .catch((error) => {
+        setLoading(false);
+        throw error; // Propagate the error for further handling
+      });
   };
+  
 
   const signInGoogle = () => {
     setLoading(true);

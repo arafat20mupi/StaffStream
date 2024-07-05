@@ -2,26 +2,26 @@ import toast from "react-hot-toast";
 import useAuth from "../../Hooks/useAuth";
 import useAxiosCommon from "../../Hooks/useAxiosCommon";
 import { Helmet } from "react-helmet-async";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const { signInGoogle, signIn } = useAuth();
   const navigate = useNavigate()
 
-    const axiosCommon = useAxiosCommon()
+  const axiosCommon = useAxiosCommon()
   const handleGoogleSignIn = () => {
     signInGoogle()
       .then(async (res) => {
         toast.success('Login Successful')
         const userDetails = {
-          email:res?.user?.email,
-          name:res?.user?.displayName,
-          image:res?.user?.photoURL,
-          role:'user',
-          status:'Available'
+          email: res?.user?.email,
+          name: res?.user?.displayName,
+          image: res?.user?.photoURL,
+          role: 'user',
+          status: 'Available'
         }
         navigate('/')
-        const {data} = await axiosCommon.put('/user',userDetails)
+        const { data } = await axiosCommon.put('/user', userDetails)
       })
       .catch((err) => {
         toast.error(err.message);
@@ -32,17 +32,17 @@ const LoginPage = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    signIn(email,password)
-    .then(res => {
+    signIn(email, password)
+      .then(res => {
         toast.success('Login Successful')
         navigate('/')
         form.reset()
-    })
-    .catch(err => {
+      })
+      .catch(err => {
         console.log(err);
         toast.error(err.message)
-    })
-};
+      })
+  };
   return (
     <section className="bg-white dark:bg-gray-900">
       <Helmet>
@@ -124,7 +124,6 @@ const LoginPage = () => {
             <p className="mt-4 text-center text-gray-600 dark:text-gray-400">
               or sign in with
             </p>
-
             <button
               onClick={handleGoogleSignIn}
               type="button"
@@ -151,12 +150,6 @@ const LoginPage = () => {
 
               <span className="mx-2">Sign in with Google</span>
             </button>
-
-            <div className="mt-6 text-center ">
-              <button className="text-sm text-blue-500 hover:underline dark:text-blue-400">
-                Don’t have an account yet? Sign up
-              </button>
-            </div>
           </div>
         </form>
       </div>

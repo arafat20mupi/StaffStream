@@ -1,5 +1,9 @@
 {
   "projects": {
-    "default": "assetflow-2ac74"
-  }
+    "default": "assestflow",
+    "dist": "assestflow"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
 }

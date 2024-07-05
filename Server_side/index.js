@@ -12,8 +12,6 @@ const corsOptions = {
   origin: [
     "http://localhost:5173",
     "http://localhost:5174",
-    "https://assetflow-2ac74.web.app",
-    "https://assetflow-2ac74.firebaseapp.com",
     "https://assestflow.web.app",
     "https://assestflow.firebaseapp.com"
   ],
