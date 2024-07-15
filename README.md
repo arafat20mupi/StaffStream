@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # StaffStream
+=======
+StaffStream
+>>>>>>> 4a4fb308207bf00baebb177eff8593813505954d
 
 **Live Link:** [StaffStream Live](https://assetflow-2ac74.web.app)
 
@@ -32,7 +36,7 @@
 - **Node.js:** A JavaScript runtime environment that allows you to run JavaScript code outside a web browser. This enables server-side scripting and APIs.
 - **Express.js:** A web application framework for Node.js that simplifies server creation and routing. It handles incoming requests and sends responses.
 - **JWT (JSON Web Token):** A popular authentication mechanism for secure user sessions. JWTs encode user data and a signature, ensuring secure communication between client and server.
-- **Firebase (optional):** A Google-backed platform offering various services like authentication, databases, and hosting. You can use it for user authentication and potentially other functionalities.
+- **Firebase :** A Google-backed platform offering various services like authentication, databases, and hosting. You can use it for user authentication and potentially other functionalities.
 
 ## Development Setup
 
