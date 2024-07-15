@@ -21,7 +21,7 @@ const LoginPage = () => {
           status: 'Available'
         }
         navigate('/')
-        const { data } = await axiosCommon.put('/user', userDetails)
+        await axiosCommon.put('/user', userDetails)
       })
       .catch((err) => {
         toast.error(err.message);
@@ -33,7 +33,7 @@ const LoginPage = () => {
     const email = form.email.value;
     const password = form.password.value;
     signIn(email, password)
-      .then(res => {
+      .then(() => {
         toast.success('Login Successful')
         navigate('/')
         form.reset()
@@ -47,13 +47,13 @@ const LoginPage = () => {
     <section className="bg-white dark:bg-gray-900">
       <Helmet>
         <title>
-          AssetFlow | Login
+        StaffStream | Login
         </title>
       </Helmet>
       <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
         <form onSubmit={handleLogIn} className="w-full max-w-md">
           <h1 className="text-2xl text-center font-semibold">
-            Asset<span className="text-violet-500">Flow</span>
+          Staff<span className="text-violet-500">Stream</span>
           </h1>
           <h1 className="mt-3 text-2xl font-semibold text-gray-800 capitalize text-center sm:text-3xl dark:text-white">
             sign In

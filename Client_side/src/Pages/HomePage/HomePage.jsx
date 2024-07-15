@@ -17,7 +17,7 @@ const HomePage = () => {
         <main>
             <Helmet>
                 <title>
-                    AssetFlow | Home
+                StaffStream | Home
                 </title>
             </Helmet>
             {!isHr && !isEmployee ? <Banner/> : <></>}

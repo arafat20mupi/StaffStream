@@ -37,7 +37,7 @@ const PaymentSection = () => {
       <div className="text-center">
         <h1 className="text-5xl font-bold">Pricing Plan</h1>
         <p className="lg:text-xl text-lg max-w-[800px] mt-3 mx-auto">
-          AssetFlow caters to businesses of all sizes, offering flexible
+        StaffStream caters to businesses of all sizes, offering flexible
           subscription plans to fit your specific requirements.
         </p>
       </div>

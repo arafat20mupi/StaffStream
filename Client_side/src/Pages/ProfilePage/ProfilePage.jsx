@@ -20,13 +20,10 @@ const ProfilePage = () => {
                 navigate('/profile')
                 setLoading(false)
             })
-            .catch(err=>{
-                console.log(err.message);
-            })
         }
         catch(err){
             console.log(err);
-            toast.error(err.message)
+            toast.error('Profile Update Failed')
         }
     }
     return (
@@ -60,14 +57,14 @@ const ProfilePage = () => {
                         <input type="text" name="name" className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Username"/>
                     </div>
         
-                    <label htmlFor="dropzone-file" className="flex items-center px-3 py-3 mx-auto mt-6 text-center bg-white border-2 border-dashed rounded-lg cursor-pointer dark:border-gray-600 dark:bg-gray-900">
+                    <label  htmlFor="dropzone-file" className="flex items-center px-3 py-3 mx-auto mt-6 text-center bg-white border-2 border-dashed rounded-lg cursor-pointer dark:border-gray-600 dark:bg-gray-900">
                         <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-gray-300 dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
                         </svg>
         
                         <h2 className="mx-3 text-gray-400">Profile Photo</h2>
         
-                        <input id="dropzone-file" name="photo" type="file"  />
+                        <input required id="dropzone-file" name="photo" type="file"  />
                     </label>
                          <div className="flex justify-center">
                         <button type="submit"  className="bg-violet-500 hover:bg-violet-600 transition-all duration-300 py-2 px-7 text-white text-xl font-medium mt-4">Update Profile</button>

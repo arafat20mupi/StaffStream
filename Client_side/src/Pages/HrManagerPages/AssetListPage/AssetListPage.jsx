@@ -93,7 +93,7 @@ const AssetListPage = () => {
     <section className="min-h-[calc(100vh-330px)]">
       <Helmet>
         <title>
-          Assets List
+          Product List
         </title>
       </Helmet>
       <section className="container px-4 mx-auto pt-20">
@@ -127,7 +127,7 @@ const AssetListPage = () => {
         </div>
         <div className="flex items-center gap-x-3">
           <h2 className="text-lg font-medium text-gray-800 dark:text-white">
-            Total Assets
+            Total Product
           </h2>
 
           <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full dark:bg-gray-800 dark:text-blue-400">
@@ -178,7 +178,7 @@ const AssetListPage = () => {
                         scope="col"
                         className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
                       >
-                        Product Added Date
+                        Added Date
                       </th>
                       <th
                         scope="col"

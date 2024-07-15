@@ -7,7 +7,7 @@ const Footer = () => {
             <div className="w-full -mx-6 lg:w-2/5">
                 <div className="px-6">
                 <h1 className="lg:text-4xl text-2xl text-black font-semibold">
-          Asset<span className="text-violet-500">Flow</span>
+                Staff<span className="text-violet-500">Stream</span>
         </h1>
 
                     <p className="max-w-sm mt-2 text-gray-500 dark:text-gray-400">Join 31,000+ other and never miss out on new tips, tutorials, and more.</p>
@@ -81,7 +81,7 @@ const Footer = () => {
         <hr className="h-px my-6 bg-gray-200 border-none dark:bg-gray-700"/>
 
         <div>
-            <p className="text-center text-gray-500 dark:text-gray-400">© AssetFlow 2024 - All rights reserved</p>
+            <p className="text-center text-gray-500 dark:text-gray-400">© StaffStream 2024 - All rights reserved</p>
         </div>
     </div>
 </footer>

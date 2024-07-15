@@ -8,7 +8,7 @@ const About = () => {
         <h1 className="text-5xl font-bold">About Us</h1>
         <p className="lg:text-xl text-lg max-w-[800px] mt-3 mx-auto">
           Empower your workforce and optimize resource allocation with
-          AssetFlow, the all-in one web application designed to revolutionize
+          StaffStream, the all-in one web application designed to revolutionize
           employee asset management.
         </p>
       </div>
@@ -18,7 +18,7 @@ const About = () => {
         </div>
         <div>
           <h3 className="text-3xl mb-2 font-bold mt-5 border-b-2 w-fit border-black pb-2">
-            Here's what AssetFlow can do for your business:
+            Here's what StaffStream can do for your business:
           </h3>
           <ul className="list-disc text-lg font-normal p-5 space-y-2">
             <li className="text-justify">
@@ -46,7 +46,7 @@ const About = () => {
             </li>
             <li className="text-justify">
               <span className="font-semibold">Scalable and Secure: </span>
-              AssetFlow is a cloud-based solution that adapts to your business
+              StaffStream is a cloud-based solution that adapts to your business
               needs. Enjoy robust security measures to safeguard your company's
               asset data.
             </li>

@@ -30,7 +30,6 @@ const CheckOutForm = ({info}) => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         setProcessing(true)
-        console.log('hello');
         if (!strip || !element) {
           return;
         }

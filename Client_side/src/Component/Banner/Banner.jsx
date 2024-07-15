@@ -1,14 +1,5 @@
-import React, { useRef, useState } from "react";
-// Import Swiper React components
+
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-
-import "./styles.css";
-import hrbg from '../../assets/hr.png'
-// import required modules
 import { Navigation } from "swiper/modules";
 import { Link } from "react-router-dom";
 
@@ -46,7 +37,7 @@ const Banner = () => {
            className="min-h-screen bg-blue-300 w-full flex">
             <div className="max-w-[600px] flex flex-col mt-32 p-5 lg:mt-48 lg:ml-14">
             <h1 className="lg:text-5xl text-3xl font-bold lg:leading-[60px]">Track Employee Assets <span className="text-violet-500">Efficiently</span></h1>
-            <p className="text-base mt-4 text-justify">The AssetFlow application empowers HR professionals like you to Track Employee Assets Efficiently. Our user-friendly platform streamlines the process of assigning, tracking, and managing all company equipment and supplies, including laptops, phones, furniture, and office supplies.</p>
+            <p className="text-base mt-4 text-justify">The StaffStream application empowers HR professionals like you to Track Employee Assets Efficiently. Our user-friendly platform streamlines the process of assigning, tracking, and managing all company equipment and supplies, including laptops, phones, furniture, and office supplies.</p>
             <Link to='/joinashr'>
               <button className="bg-violet-500 hover:bg-violet-600 transition-all duration-300 py-2 px-7 text-white text-xl font-medium mt-4">Join As HR Manager</button>
             </Link>

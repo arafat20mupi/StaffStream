@@ -6,11 +6,11 @@ const PayMentPage = () => {
         <section className="container mx-auto pt-20">
             <Helmet>
                 <title>
-                    AssetFlow | Payment
+                    StaffStream | Payment
                 </title>
             </Helmet>
-        <PaymentSection/>
-    </section>
+            <PaymentSection />
+        </section>
     );
 };
 

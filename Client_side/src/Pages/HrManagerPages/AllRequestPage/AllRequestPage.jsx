@@ -212,9 +212,9 @@ if(isLoading)return <div className='w-full min-h-[calc(100vh-330px)] flex justif
                               </p>
                             </div>
                           </td>
-                          <td className="space-x-2">
+                          <td className="md:space-y-2">
                             <button onClick={()=> handleAccept(item._id,item.key)} >
-                              <div className="inline-flex items-center px-3 py-1 rounded-full gap-x-2 text-emerald-500 bg-emerald-100/60 dark:bg-gray-800">
+                              <div className="inline-flex items-center px-2 py-1 rounded-full gap-x-2 text-emerald-500 bg-emerald-100/60 dark:bg-gray-800">
                                 <svg
                                   width="12"
                                   height="12"
@@ -235,7 +235,7 @@ if(isLoading)return <div className='w-full min-h-[calc(100vh-330px)] flex justif
                               </div>
                             </button>
 
-                            <button onClick={()=>handleReject(item._id)} className="inline-flex items-center px-3 py-1 text-red-500 rounded-full gap-x-2 bg-red-100/60 dark:bg-gray-800">
+                            <button onClick={()=>handleReject(item._id)} className="inline-flex items-center px-2 py-1 text-red-500 rounded-full gap-x-2 bg-red-100/60 dark:bg-gray-800">
                               <svg
                                 width="12"
                                 height="12"
@@ -251,7 +251,6 @@ if(isLoading)return <div className='w-full min-h-[calc(100vh-330px)] flex justif
                                   strokeLinejoin="round"
                                 />
                               </svg>
-
                               <h2 className="text-sm font-normal">Reject</h2>
                             </button>
                           </td>

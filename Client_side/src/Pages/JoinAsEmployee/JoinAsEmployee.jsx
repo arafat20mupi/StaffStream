@@ -1,13 +1,12 @@
 import toast from "react-hot-toast";
 import useAuth from "../../Hooks/useAuth";
 import { imageUpload } from "../../Utility";
-import bg from "../../assets/about.jpg";
 import useAxiosCommon from "../../Hooks/useAxiosCommon";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 const JoinAsEmployee = () => {
   const navigate = useNavigate()
-  const { signInGoogle , createUser , updataNamePhoto , logOut } = useAuth();
+  const { signInGoogle , createUser , updataNamePhoto  } = useAuth();
   const axiosCommon = useAxiosCommon()
 
   const handleGoogleSignIn = async () => {
@@ -21,7 +20,7 @@ const JoinAsEmployee = () => {
           role:'user',
           status:'Available'
         }
-        const {data} = await axiosCommon.put('/user',userDetails)
+        await axiosCommon.put('/user',userDetails)
         navigate('/')
       })
       .catch((err) => {
@@ -57,8 +56,7 @@ const JoinAsEmployee = () => {
         .catch(err=> {
             toast.error(err.message)
         })
-        const {data} = await axiosCommon.put('/user',currentUser)
-        
+        await axiosCommon.put('/user',currentUser)
           form.reset()
           navigate('/')
     }
@@ -71,13 +69,13 @@ const JoinAsEmployee = () => {
     <section className="min-h-[calc(100vh-330px)] py-32">
       <Helmet>
         <title>
-          AssetFlow | Join As Employee
+        StaffStream | Join As Employee
         </title>
       </Helmet>
       <div className="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 lg:max-w-4xl">
         <div
           style={{
-            background: `linear-gradient(90deg,rgba(0,0,0,0.7),rgba(0,0,0,0.4)),url(${bg})`,
+            background: `linear-gradient(90deg,rgba(0,0,0,0.7),rgba(0,0,0,0.4)),url(${'login-bg.jpg'})`,
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             backgroundPosition: "center",
@@ -88,7 +86,7 @@ const JoinAsEmployee = () => {
         <div className="w-full px-6 py-8 md:px-8 lg:w-1/2">
           <div className="flex justify-center mx-auto">
             <h1 className="text-2xl font-semibold">
-              Asset<span className="text-violet-500">Flow</span>
+            Staff<span className="text-violet-500">Stream</span>
             </h1>
           </div>
 
@@ -157,6 +155,39 @@ const JoinAsEmployee = () => {
             <div className="mt-4">
               <label
                 className="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200"
+                htmlFor="LoggingEmailAddress"
+              >
+                Email Address
+              </label>
+              <input
+              required
+                id="LoggingEmailAddress"
+                name="email"
+                className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
+                type="email"
+              />
+            </div>
+            <div className="mt-4">
+              <div className="flex justify-between">
+                <label
+                  className="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200"
+                  htmlFor="loggingPassword"
+                >
+                  Password
+                </label>
+              </div>
+
+              <input
+              required
+                id="loggingPassword"
+                name="password"
+                className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
+                type="password"
+              />
+            </div>
+            <div className="mt-4">
+              <label
+                className="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200"
                 htmlFor="birth"
               >
                 Date Of Birth
@@ -184,51 +215,14 @@ const JoinAsEmployee = () => {
                 type="file"
               />
             </div>
-            <div className="mt-4">
-              <label
-                className="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200"
-                htmlFor="LoggingEmailAddress"
-              >
-                Email Address
-              </label>
-              <input
-              required
-                id="LoggingEmailAddress"
-                name="email"
-                className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
-                type="email"
-              />
-            </div>
+            
 
-            <div className="mt-4">
-              <div className="flex justify-between">
-                <label
-                  className="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200"
-                  htmlFor="loggingPassword"
-                >
-                  Password
-                </label>
-                <a
-                  href="#"
-                  className="text-xs text-gray-500 dark:text-gray-300 hover:underline"
-                >
-                  Forget Password?
-                </a>
-              </div>
-
-              <input
-              required
-                id="loggingPassword"
-                name="password"
-                className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
-                type="password"
-              />
-            </div>
+            
 
             <div className="mt-6">
               <button
                 type="submit"
-                className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50"
+                className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-primary rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50"
               >
                 Sign Up
               </button>
