@@ -1,8 +1,5 @@
-<<<<<<< HEAD
+
 # StaffStream
-=======
-StaffStream
->>>>>>> 4a4fb308207bf00baebb177eff8593813505954d
 
 **Live Link:** [StaffStream Live](https://assetflow-2ac74.web.app)
 
