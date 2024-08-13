@@ -1,7 +1,7 @@
 
 # StaffStream
 
-**Live Link:** [StaffStream Live](https://assetflow-2ac74.web.app)
+**Live Link:** [StaffStream Live](https://assestflow.web.app/)
 
 ## Project Overview
 - This web application allows businesses to manage their assets and products efficiently.
