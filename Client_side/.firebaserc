@@ -1,9 +1,5 @@
 {
   "projects": {
-    "default": "assestflow",
-    "dist": "assestflow"
-  },
-  "targets": {},
-  "etags": {},
-  "dataconnectEmulatorConfig": {}
+    "default": "assestflow"
+  }
 }
