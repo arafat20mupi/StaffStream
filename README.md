@@ -1,7 +1,7 @@
 
 # StaffStream
 
-**Live Link:** [StaffStream Live](https://assestflow.web.app/)
+**Live Link:** [StaffStream Live](https://staffstream.netlify.app)
 
 ## Project Overview
 - This web application allows businesses to manage their assets and products efficiently.
