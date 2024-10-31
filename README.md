@@ -56,3 +56,8 @@
 
 ---
 
+```bash
+admin emails: arafat@gmail.com
+admin password : Arafat
+```
+
