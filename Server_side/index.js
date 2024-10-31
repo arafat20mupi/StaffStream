@@ -13,7 +13,8 @@ const corsOptions = {
     "http://localhost:5173",
     "http://localhost:5174",
     "https://assestflow.web.app",
-    "https://assestflow.firebaseapp.com"
+    "https://assestflow.firebaseapp.com",
+    "https://staffstream.netlify.app"
   ],
   optionSuccessStatus: 200,
 };
